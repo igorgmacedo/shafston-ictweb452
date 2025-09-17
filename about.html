@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Force - Home Page</title>
+  <link rel="icon" href="images/computer_force_favicon.svg" type="image/svg+xml">
+  <style>
+    /* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection {
+  color: #000;
+  background-color: #03e6ff;
+}
+body {
+  font-family: "IBM Plex Mono", "Atkinson Hyperlegible", "Atkinson Hyperlegible Mono", monospace, sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.05) !important;
+  z-index: 10;
+}
+html, body {
+  height: 100%;
+}
+header svg, header img {
+  max-height: 80px;
+}
+footer svg, footer img {
+  max-height: 40px;
+}
+.computer-force-title{
+  display: none;
+}
+/* Ensure content stretches */
+.content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1400px !important;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+@media screen and (max-width: 768px) {
+  .category-list {
+    grid-template-columns: repeat(auto-fit, minmax(auto, 2fr));
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.category-item {
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  padding: 1rem;
+  /**overflow: none;**/
+}
+.category-item:hover {
+  text-decoration: underline;
+  background-color: #03e6ff;
+  cursor: pointer;
+}
+.category-item img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 0.05rem;
+}
+.category-item h2 {
+  color: #000;
+  line-height: 0.5em;
+  margin: 0 0.85rem 1.5rem 0.85rem;
+}
+@media screen and (max-width: 768px) {
+  .category-item h2 {
+    line-height: 1em;
+  }
+}
+.category-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Ensures the link fills available space */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.6em 2em;
+  background-color: #f2f2f2;
+}
+.nav-left a {
+  display: inline-block;
+  color: #000;
+  margin-right: 1.6em;
+  font-weight: bold;
+  padding: 8px 15px 10px 15px;
+  text-decoration: none;
+  border: 2px solid #f2f2f2;
+  border-radius: 15px;
+  margin: 0.2em 1.6em 0.2em 0;
+}
+.nav-left a:hover {
+  text-decoration: underline;
+  color: #000;
+  padding: 8px 15px 10px 15px;
+  border: 2px solid #03e6ff;
+  border-radius: 15px;
+  background-color: #03e6ff;
+}
+.nav-left a.active{
+  text-decoration: underline;
+}
+.nav-right input {
+  border: 2px solid #f2f2f2;
+  padding: 8px 15px 10px 15px;
+  border-radius: 15px;
+}
+table td:not(:last-child){
+  padding-right: 0.5em;
+}
+button{
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  margin-top: 0.5em;
+  padding: 15px;
+  border: 2px solid #f2f2f2;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+}
+button:hover{
+  text-decoration: underline;
+  color: #000;
+  padding: 15px;
+  border: 2px solid #03e6ff;
+  border-radius: 15px;
+  background-color: #03e6ff;
+  cursor: pointer;
+}
+.hover-arrow::after {
+  content: "";
+  transition: content 0.2s ease;
+}
+
+.hover-arrow:hover::after {
+  content: " >";
+}
+.div_spacer{
+  min-height: 1000px;
+}
+
+main {
+  flex: 0 0 60%;
+  padding: 2em;
+  background-color: #fff;
+}
+section.main{
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    flex: 0 0 100%;
+    padding: 2em;
+    background-color: #fff;
+  }
+}
+
+a:target{
+  border-radius: 15px;
+  scroll-margin-top: 150px;
+  outline-color: #03e6ff;
+}
+
+.registration-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #fff;
+}
+.registration-form fieldset {
+  border: none;
+}
+.registration-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.form-actions button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 15px;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+}
+.form-actions button:hover {
+  background-color: #03e6ff;
+  color: #000;
+}
+.form-actions button[type="reset"] {
+  background-color: #f2f2f2;
+  color: #000;
+}
+.form-actions button[type="reset"]:hover {
+  background-color: #03e6ff;
+  color: #000;
+}
+
+aside {
+  flex: 1;
+  margin: 2em;
+  background-color: #fff;
+  border: 2px solid #a2a2a2;
+  padding: 20px;
+  border-radius: 15px;
+  display: inline-block;
+  height: fit-content;
+}
+footer {
+  flex-shrink: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 50px rgba(0,0,0,0.1) !important;
+  z-index: 10;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h2 class="computer-force-title">Computer Force</h2>
+    <a href="index.html">
+    <img src="images/computer_force_logo_452.svg" alt="Computer Force Logo">
+    </a>
+  </header>
+
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="register.html">Register</a>
+      <a href="about.html" class="active">About</a>
+    </div>
+    <div class="nav-right">
+      <input type="text" placeholder="Search...">
+    </div>
+  </nav>
+
+  <div class="content">
+    <main>
+        <section class="main">
+        <h1>About Computer Force</h1>
+        <p>Computer Force is a brand-new start-up company designed to provide the first-class service to its customers. Based in Parramatta in Sydney, Computer Force provides top-class computing products at bargain prices, for sale throughout Australia.</p><br>
+      
+        <h2>Our goals are:</h2>
+        <p>• To become Australia’s most well-known and respected hardware and software, provider.</p><br>
+        <p>• To create a service-based organisation whose goal is to exceed customer's expectations.</p><br>
+        <p>• To provide a smooth, efficient, and transparent sales process.</p><br>
+
+        <h2>Contact</h2>
+        <p>You can contact us using the following methods:
+        <br><strong>• Address:</strong> 100 Main Road, Parramatta, NSW 2150
+        <br><strong>• Email:</strong> info@computerforce.com.au
+        <br><strong>• Phone:</strong> 02 4444 5555</p><br>
+        </section>
+        <!--<div class="div_spacer"></div>-->
+    </main>
+    
+    <aside>
+      <h2>Purchases</h2>
+      <table>
+        <tr>
+          <td>0 items.</td>
+          <td>Cart sub-total: $0.</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+          <button class="hover-arrow" type="button" aria-label="Proceed to checkout">Go to Checkout</button>
+          </td>
+        </tr>
+      </table>
+    </aside>
+  </div>
+
+  <footer>
+    <p>Copyright &copy; 2025 • <strong>Igor Macedo</strong> • ICTWEB452</p>
+    <a href="index.html">
+    <img src="images/computer_force_logo_white_452.svg" alt="Computer Force Logo">
+    </a>
+  </footer>
+  
+</body>
+</html>
